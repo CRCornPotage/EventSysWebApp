@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springStudy.eventSys.mapper.UserMapper">
+
+    <!-- ユーザ名を引数にユーザ情報を取得するSQL -->
+    <select id="getUserByUsername" resultType="com.springStudy.eventSys.entity.User">
+        SELECT * 
+        FROM users 
+        WHERE username = #{username}
+    </select>
+
+</mapper>
