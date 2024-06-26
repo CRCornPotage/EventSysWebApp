@@ -41,9 +41,9 @@ CREATE TABLE notifications (
 
 -- 初期ユーザーの挿入
 -- パスワードは 'adminpassword', 'user1password', 'user2password' をBCryptPasswordEncoderでエンコードしたものです
-INSERT INTO users (username, password, email, role) VALUES ('admin', '$2a$10$DowQ5OeGm3DW3yUjGz3TEuP3iXZ8zWxlyz4T4HYb5Dx5m9ZUkF5qi', 'admin@example.com', 'ADMIN');
-INSERT INTO users (username, password, email, role) VALUES ('user1', '$2a$10$JxTFJj4VHQV1/o9AkcP1Zef3OjAumWlU8Xa8izMbSBsTYgH9nUN4.', 'user1@example.com', 'USER');
-INSERT INTO users (username, password, email, role) VALUES ('user2', '$2a$10$Lx5aIcOu6WdoT.LdBUE8dORAYyTQ/sHLtMSj.C6m.K1RTo4aFbKI6', 'user2@example.com', 'USER');
+INSERT INTO users (username, password, email, role) VALUES ('admin', '$2a$10$2iDTs4wNWGkkY.QzqbU1ru88Lbt.50O2jivlsG/RvuGUylZdYuv9a', 'admin@example.com', 'ADMIN');
+INSERT INTO users (username, password, email, role) VALUES ('user1', '$2a$10$Yb2/a4WDgOwRvsqYQDh0m.8Ef9ur0Qqcsxmln1qgy4qFzC09RCj4u', 'user1@example.com', 'USER');
+INSERT INTO users (username, password, email, role) VALUES ('user2', '$2a$10$TnGMqL6qiwkgDsC/hBOkf..zhtcexy/fDDVKNIWguShjqwOT4VTpq', 'user2@example.com', 'USER');
 
 -- 初期イベントの挿入
 INSERT INTO events (name, description, location, start_time, end_time, organizer_id) VALUES ('Spring Boot Workshop', 'A workshop on Spring Boot basics', 'Conference Room A', '2024-07-01 10:00:00', '2024-07-01 12:00:00', 1);
