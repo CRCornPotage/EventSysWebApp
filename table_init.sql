@@ -1,3 +1,14 @@
+-- 既存のデータベースを削除
+DROP DATABASE IF EXISTS eventsys;
+
+-- EventSysデータベースの作成
+CREATE DATABASE eventsys;
+
+-- 新しいデータベースに移動
+USE eventsys;
+
+
+
 -- Userテーブルの作成
 CREATE TABLE users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
