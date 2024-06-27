@@ -47,7 +47,7 @@ public class SecurityConfig {
     			.logoutUrl("/logout") // ログアウトプロセス用URLの設定
     			.logoutSuccessUrl("/common/goLogin?logout=true") // ログアウト成功時の遷移先URL設定
     			.permitAll() // ログアウト処理は全ユーザを許可
-    	
+    			
     	// 認証・認可設定
 		).authorizeHttpRequests(authz -> authz
     			.requestMatchers(
