@@ -1,4 +1,4 @@
-package com.springStudy.eventSys.config.aspect;
+package com.springStudy.eventSys.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
