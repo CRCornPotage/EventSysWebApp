@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>ログイン画面</title>
+
+<script th:src="@{/js/common-script.js}"></script>
+
+</head>
+
+<body>
+	
+	<h2>ログイン</h2>
+	
+	<form th:action="@{/login}" method="post" id="login">
+	
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		
+		<label for="username">ユーザー名</label>
+		<input type="text" id="username" name="username" required>
+		
+		<label for="password">パスワード</label>
+		<input type="password" id="password" name="password" required>
+	
+	</form>
+	
+	<form th:action="@{/signup/goSignup}" method="get" id="signup"></form>
+	
+	<p th:text="${error}">エラーメッセージ</p>
+	
+	<p th:text="${logout}">ログアウトメッセージ</p>
+	
+	<button type="submit" form="login">ログイン</button>
+	
+	<button type="submit" form="signup">新規登録</button>
+		
+</body>
+
+</html>
