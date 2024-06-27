@@ -45,7 +45,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		}
 		
 		// ユーザ情報を登録
-		return new CustomUserDetails().setUser(user);
+		return new CustomUserDetails(user);
 	}
 
 }

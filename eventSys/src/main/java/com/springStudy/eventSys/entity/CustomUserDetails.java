@@ -1,21 +1,22 @@
 package com.springStudy.eventSys.entity;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 /**
  * ログイン中のユーザ情報を保持するクラス
  * ユーザエンティティの情報を表します。
  */
 @Data
-@Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomUserDetails implements UserDetails {
@@ -29,7 +30,15 @@ public class CustomUserDetails implements UserDetails {
 	 */
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return user.getRoles();
+		
+		// 権限を格納する権限リストインスタンスを作成
+		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+		
+		// 権限を格納
+		authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
+		
+		// 権限情報を返却
+		return authorities;
 	}
 	
 	/**
@@ -38,6 +47,8 @@ public class CustomUserDetails implements UserDetails {
 	 */
 	@Override
 	public String getPassword() {
+		
+		// パスワードを返却
 		return user.getPassword();
 	}
 	
@@ -47,6 +58,8 @@ public class CustomUserDetails implements UserDetails {
 	 */
 	@Override
 	public String getUsername() {
+		
+		// ユーザ名を返却
 		return user.getUsername();
 	}
 

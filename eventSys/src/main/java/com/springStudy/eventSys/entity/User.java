@@ -1,9 +1,6 @@
 package com.springStudy.eventSys.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
-
-import org.springframework.security.core.GrantedAuthority;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,6 +29,7 @@ public class User implements Serializable {
 	private String email;
 	
 	/** 権限 */
-	private Collection<? extends GrantedAuthority> roles;
+	private String role;
 	
 }
+
