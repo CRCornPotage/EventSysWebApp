@@ -61,7 +61,7 @@ public class UserController {
 	
 	/**
 	 * ユーザ情報更新画面を返却するメソッド
-	 * @param user ログイン中のユーザ情報を保持するエンティティ
+	 * @param user 
 	 * @param model
 	 * @return　ユーザ情報更新画面
 	 */
@@ -89,7 +89,7 @@ public class UserController {
 	@GetMapping("/user/reUserUpdate")
 	public String reUserUpdate(@ModelAttribute("user") User user, Model model) {
 		
-		// ユーザのセッションオブジェクトが存在しない場合に実行
+		// ユーザのセッションオブジェクトが存在する場合に実行
 		if(user != null) {
 			
 			// ユーザフォームオブジェクトをモデルに格納
@@ -98,7 +98,7 @@ public class UserController {
 					new UserForm().buildUserForm(user)
 			);
 			
-		// ユーザのセッションオブジェクトが存在する場合に実行
+		// ユーザのセッションオブジェクトが存在しない場合に実行
 		}else {
 			
 			// ユーザフォームオブジェクトをモデルに格納
@@ -149,6 +149,9 @@ public class UserController {
 			
 			// エラーメッセージをモデルに格納
 			model.addAttribute("message", e.getMessage());
+			
+			// ユーザフォームをモデルに格納
+			model.addAttribute("userForm", userForm);
 			
 			// ユーザ情報更新画面を返却
 			return "user/user-update-input";
@@ -202,6 +205,13 @@ public class UserController {
 			
 			// エラーメッセージをモデルに格納
 			model.addAttribute("message", e.getMessage());
+			
+			// ユーザフォームオブジェクトをモデルに格納
+			model.addAttribute(
+					"userForm", 
+					new UserForm().buildUserForm(
+							EventSysUtil.getUserDetails().getUser())
+			); 
 			
 			// ユーザ情報更新画面を返却
 			return "user/user-update-input";

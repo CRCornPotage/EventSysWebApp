@@ -70,7 +70,12 @@ public class SignupServiceImpl implements SignupService {
 		}
 
 	}
-
+	
+	/**
+	 * 新規登録処理を行うメソッド
+	 * @param user
+	 * @throws BusinessException
+	 */
 	@Override
 	@Transactional
 	public void insertUser(User user) throws BusinessException {

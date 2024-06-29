@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -54,7 +55,36 @@ public class SignupController {
 	}
 	
 	/**
-	 * 新規登録確認画面を返却するメソッド
+	 * 新規登録画面を返却するメソッド
+	 * @param user
+	 * @param model
+	 * @return 新規登録画面
+	 */
+	@GetMapping("/signup/reSignup")
+	public String reSignup(
+			@ModelAttribute("user") User user, Model model) {
+		
+		// ユーザ情報のセッションオブジェクトが存在する場合に実行
+		if(user != null) {
+			
+			// モデルにユーザ情報を追加して新規登録フォームを登録
+			model.addAttribute("newUserForm", new NewUserForm().buildUserForm(user));
+		
+		// ユーザ情報のセッションオブジェクトが存在しない場合に実行
+		}else {
+			
+			// モデルに新規登録フォームを登録
+			model.addAttribute("newUserForm", new NewUserForm());
+			
+		}
+		
+		// 新規登録画面を返却
+		return "signup/signup-input";
+		
+	}
+	
+	/**
+	 * 新規登録情報確認処理を行い新規登録確認画面を返却するメソッド
 	 * @param newUserForm
 	 * @param result
 	 * @param model
@@ -66,6 +96,9 @@ public class SignupController {
 		
 		// バリテーションチェック
 		if(result.hasErrors()) {
+			
+			// 新規登録フォームをモデルに格納
+			model.addAttribute("newUserForm", new NewUserForm());
 			
 			// 新規登録画面を返却
 			return "signup/signup-input";
@@ -85,13 +118,60 @@ public class SignupController {
 			// エラーメッセージをモデルに格納
 			model.addAttribute("message", e.getMessage());
 			
+			// 新規登録フォームをモデルに格納
+			model.addAttribute("newUserForm", new NewUserForm());
+			
+			// 新規登録画面を返却
+			return "signup/signup-input";
+			
 		}
 		
 		// ユーザ情報をモデルに格納
 		model.addAttribute("user", user);
 		
-		// 新規登録確認画面
+		// 新規登録確認画面を返却
 		return "signup/signup-confirm";
+		
+	}
+	
+	/**
+	 * 新規登録処理を行い新規登録完了画面を返却するメソッド
+	 * @param user
+	 * @param model
+	 * @return 新規登録完了画面
+	 */
+	@PostMapping("/signup/goSignupComplete")
+	public String goSignupComplete(
+			@ModelAttribute("user") User user, Model model) {
+		
+		// ユーザ情報のセッションオブジェクトが存在しない場合に実行
+		if(user == null) {
+			
+			// 新規登録フォームをモデルに格納
+			model.addAttribute("newUserForm", new NewUserForm());
+			
+			// 新規登録画面を返却
+			return "signup/signup-input";
+			
+		}
+		
+		try {
+			
+			// 新規登録処理を実行
+			signupService.insertUser(user);
+			
+		}catch(BusinessException e) {
+			
+			// エラーメッセージをモデルに格納
+			model.addAttribute("message", e.getMessage());
+			
+			// 新規登録フォームをモデルに格納
+			model.addAttribute("newUserForm", new NewUserForm());
+			
+		}
+			
+		// 新規登録完了画面を返却
+		return "signup/signup-complete";
 		
 	}
 	
