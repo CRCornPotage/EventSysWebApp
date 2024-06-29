@@ -18,7 +18,7 @@ public class CommonController {
 	@GetMapping("/")
 	public String goTop() {
 		
-		// トップページを返却
+		// トップ画面を返却
 		return "common/top";
 		
 	}
@@ -45,8 +45,6 @@ public class CommonController {
 			
 			// エラーメッセージを設定
 			message = "ユーザー名かパスワードが違います";
-			
-			// モデルにメッセージを追加
 			model.addAttribute("error", message);
 			
 		}
