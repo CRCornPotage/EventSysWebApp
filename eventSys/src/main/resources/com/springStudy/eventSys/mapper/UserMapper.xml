@@ -3,12 +3,46 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.springStudy.eventSys.mapper.UserMapper">
-
+	
+	<!-- ユーザIDを引数にユーザ情報を取得するSQL -->
+    <select id="getUserById" resultType="com.springStudy.eventSys.entity.User">
+        SELECT * 
+        FROM users 
+        WHERE id = #{id}
+    </select>
+	
     <!-- ユーザ名を引数にユーザ情報を取得するSQL -->
     <select id="getUserByUsername" resultType="com.springStudy.eventSys.entity.User">
         SELECT * 
         FROM users 
         WHERE username = #{username}
     </select>
-
+	
+	<!-- ユーザ名を引数にユーザ情報を取得するSQL -->
+    <select id="getUserByEmail" resultType="com.springStudy.eventSys.entity.User">
+        SELECT * 
+        FROM users 
+        WHERE email = #{email}
+    </select>
+	
+	<!-- ユーザ情報を更新するSQL -->
+	<update id="updateUser">
+		UPDATE users
+		SET username=#{username}, email=#{email}, role=#{role}
+		WHERE id=#{id}
+	</update>
+	
+	<!-- パスワードを更新するSQL -->
+	<update id="updateUserPassword">
+		UPDATE users
+		SET password = #{password}
+		WHERE id=#{id}
+	</update>
+	
+	<!-- ユーザ情報を登録するSQL -->
+	<insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO users(username, password, email, role)
+		VALUES (#{username}, #{password}, #{email}, #{role})
+	</insert>
+	
 </mapper>

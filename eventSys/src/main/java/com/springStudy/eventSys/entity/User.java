@@ -2,6 +2,9 @@ package com.springStudy.eventSys.entity;
 
 import java.io.Serializable;
 
+import com.springStudy.eventSys.form.NewUserForm;
+import com.springStudy.eventSys.form.UserForm;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,5 +34,38 @@ public class User implements Serializable {
 	/** 権限 */
 	private String role;
 	
+	/**
+	 * ユーザエンティティをビルドするメソッド
+	 * @param newUserForm
+	 * @return
+	 */
+	public User buildUser(NewUserForm newUserForm) {
+		
+		// ユーザ情報を格納
+		this.username = newUserForm.getUsername();
+		this.password = newUserForm.getPassword();
+		this.email = newUserForm.getEmail();
+		
+		// インスタンスを返却
+		return this;
+		
+	}
+	
+	/**
+	 * ユーザエンティティをビルドするメソッド
+	 * @param userForm
+	 * @return
+	 */
+	public User buildUser(UserForm userForm) {
+		
+		// ユーザ情報を格納
+		this.username = userForm.getUsername();
+		this.email = userForm.getEmail();
+		this.role = userForm.getRole();
+		
+		// インスタンスを返却
+		return this;
+		
+	}
+	
 }
-
