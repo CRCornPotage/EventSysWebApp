@@ -33,18 +33,6 @@ public class SignupServiceImpl implements SignupService {
 		// エラーメッセージを格納する変数
 		String message = "";
 		
-		/** ユーザ情報の存在チェック */
-		// ユーザIDを引数にしてユーザ情報を取得出来なかった場合に実行
-		if(userMapper.getUserById(user.getId()) == null) {
-			
-			// エラーメッセージを設定
-			message = "ユーザーIDが存在しません";
-			
-			// 業務エラーを投げる
-			throw new BusinessException(message);
-			
-		}
-		
 		/** ユーザ名の重複チェック */
 		// ユーザ名を引数にしてユーザ情報を取得出来た場合に実行
 		if(userMapper.getUserByUsername(user.getUsername()) != null) {
@@ -52,8 +40,11 @@ public class SignupServiceImpl implements SignupService {
 			// エラーメッセージを設定
 			message = "ユーザー名が重複しています";
 			
+			// ユーザ名を削除
+			user.setUsername("");
+
 			// 業務エラーを投げる
-			throw new BusinessException(message);
+			throw new BusinessException(message, user);
 			
 		}
 		
@@ -64,8 +55,11 @@ public class SignupServiceImpl implements SignupService {
 			// エラーメッセージを設定
 			message = "メールアドレスが重複しています";
 			
+			// メールアドレスを削除
+			user.setEmail("");
+			
 			// 業務エラーを投げる
-			throw new BusinessException(message);
+			throw new BusinessException(message, user);
 			
 		}
 

@@ -29,7 +29,7 @@ public class NewUserForm {
 	@Size(max = 20)
 	@Pattern(
 	        regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,20}$",
-	        message = "パスワードは大文字、小文字、数字を含む必要があります"
+	        message = "パスワードは大文字、小文字、数字を含む8～20文字の文字列である必要があります"
 	)
 	private String password;
 	

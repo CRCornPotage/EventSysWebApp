@@ -97,9 +97,6 @@ public class SignupController {
 		// バリテーションチェック
 		if(result.hasErrors()) {
 			
-			// 新規登録フォームをモデルに格納
-			model.addAttribute("newUserForm", new NewUserForm());
-			
 			// 新規登録画面を返却
 			return "signup/signup-input";
 			
@@ -121,8 +118,8 @@ public class SignupController {
 			// エラーメッセージをモデルに格納
 			model.addAttribute("message", e.getMessage());
 			
-			// 新規登録フォームをモデルに格納
-			model.addAttribute("newUserForm", new NewUserForm());
+			// 例外が発生したフィールドを削除した新規登録フォームをモデルに格納
+			model.addAttribute("newUserForm", new NewUserForm().buildUserForm(e.getUser()));
 			
 			// 新規登録画面を返却
 			return "signup/signup-input";
@@ -133,7 +130,7 @@ public class SignupController {
 		model.addAttribute("user", user);
 		
 		// 新規登録確認画面を返却
-		return "signup/signup-confirm";
+		return "signup/signup-comfirm";
 		
 	}
 	
@@ -171,8 +168,8 @@ public class SignupController {
 			// エラーメッセージをモデルに格納
 			model.addAttribute("message", e.getMessage());
 			
-			// 新規登録フォームをモデルに格納
-			model.addAttribute("newUserForm", new NewUserForm());
+			// 例外が発生したフィールドを削除した新規登録フォームをモデルに格納
+			model.addAttribute("newUserForm", new NewUserForm().buildUserForm(e.getUser()));
 			
 		}
 			
