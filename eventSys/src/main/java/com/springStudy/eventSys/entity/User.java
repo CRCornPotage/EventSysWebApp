@@ -19,8 +19,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User implements Serializable {
 	
-	/** パスワード */
-	
 	/** ユーザID */
 	private int id;
 	
@@ -47,7 +45,6 @@ public class User implements Serializable {
 		this.username = newUserForm.getUsername();
 		this.password = newUserForm.getPassword();
 		this.email = newUserForm.getEmail();
-		this.role = newUserForm.getRole();
 		
 		// インスタンスを返却
 		return this;

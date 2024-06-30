@@ -73,7 +73,7 @@ public class SignupController {
 		// ユーザ情報のセッションオブジェクトが存在しない場合に実行
 		}else {
 			
-			// モデルに新規登録フォームを登録
+			// 新規登録フォームをモデルに格納
 			model.addAttribute("newUserForm", new NewUserForm());
 			
 		}
@@ -107,6 +107,9 @@ public class SignupController {
 		
 		// ユーザ情報をフォームから取得
 		User user = new User().buildUser(newUserForm);
+		
+		// パスワードをハッシュ化
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		
 		try {
 			
@@ -154,6 +157,9 @@ public class SignupController {
 			return "signup/signup-input";
 			
 		}
+		
+		// ユーザ権限を付与
+		user.setRole("USER");
 		
 		try {
 			

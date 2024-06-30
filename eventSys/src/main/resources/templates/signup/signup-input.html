@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>新規登録画面</title>
+
+<script th:src="@{/js/common-script.js}"></script>
+
+</head>
+
+<body>
+	
+	<h2>新規登録</h2>
+	
+	<p>新規登録する情報を入力してください。</p>
+	
+	<form th:action="@{/signup/goSignupConfirm}" th:object="${newUserForm}" method="post" id="signup">
+		
+		<div class="inputUsername">
+			<label for="username">ユーザー名</label>
+			<input type="text" th:field="*{username}" maxlength="20" placeholder="YamadaTaro123" required>
+			<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">ユーザ名エラー</span>
+		</div>
+		
+		<div class="inputPassword">
+			<label for="password">パスワード</label>
+			<input type="password" th:field="*{password}" maxlength="20" required>
+			<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">パスワードエラー</span>
+		</div>
+		
+		<div class="inputPasswordConfirm">
+			<label for="passwordConfirm">パスワード（確認用）</label>
+			<input type="password" th:field="*{passwordConfirm}" maxlength="20" required>
+			<span th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}">パスワード(確認用)エラー</span>
+			<span th:if="${#fields.hasErrors('passwordValid')}" th:errors="*{passwordValid}">パスワード非合致</span>
+		</div>
+		
+		<div class="inputEmail">
+			<label for="email">メールアドレス</label>
+			<input type="email" th:field="*{email}" maxlength="100" placeholder="aaa@bbb.com" required>
+			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">メールアドレスエラー</span>
+		</div>
+		
+		<div th:text="${message}">業務エラーメッセージ</div>
+		
+	</form>
+	
+	<form th:action="@{/common/goLogin}" method="get" id="goLogin"></form>
+	
+	<button type="submit" form="signup">登録</button>
+	
+	<button type="submit" form="goLogin">ログイン画面に戻る</button>
+		
+</body>
+
+</html>

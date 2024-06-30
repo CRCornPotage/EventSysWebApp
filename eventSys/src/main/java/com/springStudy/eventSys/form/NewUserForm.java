@@ -47,11 +47,6 @@ public class NewUserForm {
 	)
 	private String email;
 	
-	/** 権限 */
-	@NotBlank
-	@Size(max = 20)
-	private String role;
-	
 	/**
 	 * パスワードの入力チェックをするメソッド
 	 * @return 入力チェックの結果
@@ -85,7 +80,6 @@ public class NewUserForm {
 		// ユーザ情報を格納
 		this.username = user.getUsername();
 		this.email = user.getEmail();
-		this.role = user.getRole();
 		
 		// インスタンスを返却
 		return this;

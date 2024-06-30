@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>新規完了画面</title>
+
+<script th:src="@{/js/common-script.js}"></script>
+
+</head>
+
+<body>
+	
+	<h2>新規登録完了</h2>
+	
+	<p>以下のユーザ情報を登録しました。</p>
+	
+	<table th:object="${user}">
+		
+		<tr>
+			<th>ユーザー名</th>
+			<td><span th:text="*{username}">ユーザー名</span></td>
+		</tr>
+		
+		<tr>
+			<th>メールアドレス</th>
+			<td><span th:text="*{email}">メールアドレス</span></td>
+		</tr>
+		
+	
+	</table>
+	
+	<form th:action="@{/common/goLogin}" method="get" id="login"></form>
+	
+	<button type="submit" form="login">ログイン</button>
+	
+</body>
+
+</html>

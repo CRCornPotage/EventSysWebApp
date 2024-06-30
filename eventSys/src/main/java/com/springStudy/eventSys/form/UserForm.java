@@ -33,8 +33,6 @@ public class UserForm {
 	private String email;
 	
 	/** 権限 */
-	@NotBlank
-	@Size(max = 20)
 	private String role;
 	
 	/**
