@@ -1,4 +1,4 @@
-package com.springStudy.eventSys.controller;
+package com.springStudy.eventSys.web.signup;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.springStudy.eventSys.entity.User;
 import com.springStudy.eventSys.exception.BusinessException;
-import com.springStudy.eventSys.form.NewUserForm;
 import com.springStudy.eventSys.service.SignupService;
 
 /**

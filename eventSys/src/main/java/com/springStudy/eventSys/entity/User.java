@@ -2,8 +2,8 @@ package com.springStudy.eventSys.entity;
 
 import java.io.Serializable;
 
-import com.springStudy.eventSys.form.NewUserForm;
-import com.springStudy.eventSys.form.UserForm;
+import com.springStudy.eventSys.web.signup.NewUserForm;
+import com.springStudy.eventSys.web.user.UserForm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

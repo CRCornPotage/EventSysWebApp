@@ -1,4 +1,4 @@
-package com.springStudy.eventSys.form;
+package com.springStudy.eventSys.web.user;
 
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotBlank;
