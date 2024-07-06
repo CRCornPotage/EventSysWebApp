@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>トップページ画面</title>
+
+<script th:src="@{/js/common-script.js}"></script>
+
+</head>
+
+<body>
+
+	<h2>トップページ</h2>
+	
+	<!--<button class="button" onclick="goThis('[[@{/common/goLogin}]]')">
+		ログイン
+	</button>-->
+	
+	<form th:action="@{/common/goLogin}" method="get">
+		<button type="submit">ログイン</button>
+	</form>
+	
+	<form th:action="@{/logout}" method="post">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		<button type="submit">ログアウト</button>
+	</form>
+	
+	<!-- TODO 遷移ボタンorハイパーリンクを設定 -->
+	
+</body>
+
+</html>
