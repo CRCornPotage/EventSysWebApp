@@ -1,4 +1,4 @@
-package com.springStudy.eventSys.form;
+package com.springStudy.eventSys.web.signup;
 
 import com.springStudy.eventSys.entity.User;
 

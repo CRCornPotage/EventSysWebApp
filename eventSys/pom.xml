@@ -15,8 +15,8 @@
 	</parent>
 
 	<!-- プロジェクトの基本情報 -->
-	<groupId>com.springStudy</groupId>
-	<artifactId>eventSys</artifactId>
+	<groupId>com.SpringStudy</groupId>
+	<artifactId>EventSysMyBatis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>eventSys</name>
 	<description>Demo project for Spring Boot</description>

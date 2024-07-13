@@ -1,4 +1,4 @@
-package com.springStudy.eventSys.controller;
+package com.springStudy.eventSys.web.common;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

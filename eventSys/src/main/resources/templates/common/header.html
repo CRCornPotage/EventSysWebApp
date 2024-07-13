@@ -1,0 +1,32 @@
+<!--/* 共通ヘッダー */-->
+<header xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6" 
+	th:fragment="header_fragment">
+	
+	<!--/* 画面遷移用埋め込みフォーム */-->
+	<form th:action="@{/common/goLogin}" method="get" id="login"></form>	
+	<form th:action="@{/logout}" method="post" id="logout"></form>
+	<form th:action="@{/signup/goSignup}" method="get" id="signup"></form>
+	
+	<a th:href="@{/}">
+		<h1>イベント管理システム</h1>
+	</a>
+	
+	<nav>
+		
+		<!--/* 非認証の場合のみ出力 */-->
+		<th:block sec:authorize="!isAuthenticated()">
+			<button type="submit" form="login">ログイン</button>
+			<button type="submit" form="signup">新規登録</button>
+		</th:block>
+		
+		<!--*/ 認証済の場合のみ出力 */-->
+		<th:block sec:authorize="isAuthenticated()">
+			<button type="submit" form="logout">ログアウト</button>
+			<button type="submit" form="userDetails" 
+				th:text="${#authentication.principal.user.username}">ユーザー情報</button>
+		</th:block>
+		
+	</nav>
+	
+</header>
