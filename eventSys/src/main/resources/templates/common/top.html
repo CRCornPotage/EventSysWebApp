@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
 
@@ -14,23 +14,19 @@
 </head>
 
 <body>
-
+	
+	<!--/* ヘッダー読み込み */-->
+	<div th:replace="~{common/header :: header_fragment}"></div>
+	
+	<main>
+	
 	<h2>トップページ</h2>
 	
-	<!--<button class="button" onclick="goThis('[[@{/common/goLogin}]]')">
-		ログイン
-	</button>-->
+	<p>イベント管理システムにようこそ！</p>
 	
-	<form th:action="@{/common/goLogin}" method="get">
-		<button type="submit">ログイン</button>
-	</form>
+	<!--/* TODO 遷移ボタンorハイパーリンクを設定 */-->
 	
-	<form th:action="@{/logout}" method="post">
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		<button type="submit">ログアウト</button>
-	</form>
-	
-	<!-- TODO 遷移ボタンorハイパーリンクを設定 -->
+	</main>
 	
 </body>
 
