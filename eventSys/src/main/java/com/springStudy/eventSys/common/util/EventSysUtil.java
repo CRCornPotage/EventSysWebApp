@@ -1,8 +1,8 @@
-package com.springStudy.eventSys.util;
+package com.springStudy.eventSys.common.util;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.springStudy.eventSys.entity.CustomUserDetails;
+import com.springStudy.eventSys.domain.entity.CustomUserDetails;
 
 /**
  * イベント管理システムで使用する各メソッドを定義するユーティリティクラス

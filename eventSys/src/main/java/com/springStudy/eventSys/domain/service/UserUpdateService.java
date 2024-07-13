@@ -1,7 +1,7 @@
-package com.springStudy.eventSys.service;
+package com.springStudy.eventSys.domain.service;
 
-import com.springStudy.eventSys.entity.User;
-import com.springStudy.eventSys.exception.BusinessException;
+import com.springStudy.eventSys.common.exception.BusinessException;
+import com.springStudy.eventSys.domain.entity.User;
 
 /**
  * ユーザ情報を更新するサービスインタフェース

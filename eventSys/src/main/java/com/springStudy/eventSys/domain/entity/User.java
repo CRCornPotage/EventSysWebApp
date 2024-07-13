@@ -1,4 +1,4 @@
-package com.springStudy.eventSys.entity;
+package com.springStudy.eventSys.domain.entity;
 
 import java.io.Serializable;
 

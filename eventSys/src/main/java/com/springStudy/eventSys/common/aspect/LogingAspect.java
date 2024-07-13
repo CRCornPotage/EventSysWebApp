@@ -1,4 +1,4 @@
-package com.springStudy.eventSys.aspect;
+package com.springStudy.eventSys.common.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -6,7 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import com.springStudy.eventSys.entity.CustomUserDetails;
+import com.springStudy.eventSys.domain.entity.CustomUserDetails;
 
 /**
  * ログインユーザ情報をログに出力するアスペクトクラス

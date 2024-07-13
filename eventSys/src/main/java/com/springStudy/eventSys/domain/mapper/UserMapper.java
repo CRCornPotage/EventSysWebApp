@@ -1,8 +1,8 @@
-package com.springStudy.eventSys.mapper;
+package com.springStudy.eventSys.domain.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.springStudy.eventSys.entity.User;
+import com.springStudy.eventSys.domain.entity.User;
 
 /**
  * ユーザテーブルを操作するMapperのインタフェース

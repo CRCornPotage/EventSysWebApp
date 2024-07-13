@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.springStudy.eventSys.entity.User;
-import com.springStudy.eventSys.exception.BusinessException;
-import com.springStudy.eventSys.service.UserUpdateService;
-import com.springStudy.eventSys.util.EventSysUtil;
+import com.springStudy.eventSys.common.exception.BusinessException;
+import com.springStudy.eventSys.common.util.EventSysUtil;
+import com.springStudy.eventSys.domain.entity.User;
+import com.springStudy.eventSys.domain.service.UserUpdateService;
 
 /**
  * ユーザ管理画面系のviewを返すコントローラクラス

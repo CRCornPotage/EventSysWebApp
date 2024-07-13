@@ -1,13 +1,13 @@
-package com.springStudy.eventSys.service;
+package com.springStudy.eventSys.domain.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.springStudy.eventSys.entity.CustomUserDetails;
-import com.springStudy.eventSys.entity.User;
-import com.springStudy.eventSys.mapper.UserMapper;
+import com.springStudy.eventSys.domain.entity.CustomUserDetails;
+import com.springStudy.eventSys.domain.entity.User;
+import com.springStudy.eventSys.domain.mapper.UserMapper;
 
 /**
  * ユーザ情報をDBから取得して登録するサービスクラス
