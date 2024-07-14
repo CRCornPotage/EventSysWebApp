@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.springStudy.eventSys.entity.User;
-import com.springStudy.eventSys.exception.BusinessException;
-import com.springStudy.eventSys.service.SignupService;
+import com.springStudy.eventSys.common.exception.BusinessException;
+import com.springStudy.eventSys.domain.entity.User;
+import com.springStudy.eventSys.domain.service.SignupService;
 
 /**
  * 新規登録画面系のviewを返すコントローラクラス

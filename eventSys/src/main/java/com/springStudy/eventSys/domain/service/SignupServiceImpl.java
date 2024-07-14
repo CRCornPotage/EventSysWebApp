@@ -1,11 +1,11 @@
-package com.springStudy.eventSys.service;
+package com.springStudy.eventSys.domain.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.springStudy.eventSys.entity.User;
-import com.springStudy.eventSys.exception.BusinessException;
-import com.springStudy.eventSys.mapper.UserMapper;
+import com.springStudy.eventSys.common.exception.BusinessException;
+import com.springStudy.eventSys.domain.entity.User;
+import com.springStudy.eventSys.domain.mapper.UserMapper;
 
 @Service
 @Transactional

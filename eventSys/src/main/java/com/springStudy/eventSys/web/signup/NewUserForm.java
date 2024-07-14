@@ -1,11 +1,12 @@
 package com.springStudy.eventSys.web.signup;
 
-import com.springStudy.eventSys.entity.User;
-
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+
+import com.springStudy.eventSys.domain.entity.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

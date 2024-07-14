@@ -69,7 +69,14 @@
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
 		</dependency>
-
+		
+		<!-- 暗号化ライブラリ -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk18on</artifactId>
+			<version>1.77</version>
+		</dependency>
+		
 		<!-- 開発時に便利なツール -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -89,7 +96,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
-
+		
 		<!-- MySQLコネクタ -->
 		<dependency>
 			<groupId>com.mysql</groupId>
@@ -103,7 +110,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-
+		
 		<!-- テスト関連の依存関係 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

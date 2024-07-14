@@ -1,6 +1,6 @@
-package com.springStudy.eventSys.exception;
+package com.springStudy.eventSys.common.exception;
 
-import com.springStudy.eventSys.entity.User;
+import com.springStudy.eventSys.domain.entity.User;
 
 import lombok.Getter;
 

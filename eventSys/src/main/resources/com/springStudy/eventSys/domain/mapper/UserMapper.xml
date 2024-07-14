@@ -2,24 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.springStudy.eventSys.mapper.UserMapper">
+<mapper namespace="com.springStudy.eventSys.domain.mapper.UserMapper">
 	
 	<!-- ユーザIDを引数にユーザ情報を取得するSQL -->
-    <select id="getUserById" resultType="com.springStudy.eventSys.entity.User">
+    <select id="getUserById" resultType="com.springStudy.eventSys.domain.entity.User">
         SELECT * 
         FROM users 
         WHERE id = #{id}
     </select>
 	
     <!-- ユーザ名を引数にユーザ情報を取得するSQL -->
-    <select id="getUserByUsername" resultType="com.springStudy.eventSys.entity.User">
+    <select id="getUserByUsername" resultType="com.springStudy.eventSys.domain.entity.User">
         SELECT * 
         FROM users 
         WHERE username = #{username}
     </select>
 	
 	<!-- ユーザ名を引数にユーザ情報を取得するSQL -->
-    <select id="getUserByEmail" resultType="com.springStudy.eventSys.entity.User">
+    <select id="getUserByEmail" resultType="com.springStudy.eventSys.domain.entity.User">
         SELECT * 
         FROM users 
         WHERE email = #{email}
