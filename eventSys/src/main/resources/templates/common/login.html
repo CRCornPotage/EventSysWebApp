@@ -26,20 +26,24 @@
 			<label for="username">ユーザー名</label>
 			<input type="text" id="username" name="username" required>
 			
+			<br>
+			
 			<label for="password">パスワード</label>
 			<input type="password" id="password" name="password" required>
-		
+			
+			<br>
+			
+			<button type="submit">ログイン</button>
+			
+			<br>
+			
+			<button type="button" th:onclick="|window.location.href=@{/signup/goSignup}|">新規登録</button>
+			
 		</form>
 		
-		<form th:action="@{/signup/goSignup}" method="get" id="signup"></form>
-		
-		<p th:text="${error}">エラーメッセージ</p>
+		<p th:text="${error}">エラーメッセ―ジ</p>
 		
 		<p th:text="${logout}">ログアウトメッセージ</p>
-		
-		<button type="submit" form="login">ログイン</button>
-		
-		<button type="submit" form="signup">新規登録</button>
 	
 	</main>
 	

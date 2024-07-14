@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -19,12 +19,12 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 	
 	/**
-	 * BCryptによるハッシュ化処理を行うメソッド
-	 * @return BCryptでハッシュ化されたパスワード
+	 * ハッシュ化処理を行うメソッド
+	 * @return PasswordEncoderを実装したインスタンス
 	 */
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    PasswordEncoder passwordEncoder() {
+    	return Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8();
     }
     
     /**
@@ -32,7 +32,7 @@ public class SecurityConfig {
      * @return ビルドされたセキュリティ設定
      */
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
     	
     	// ログイン設定
     	http.formLogin(login -> login
