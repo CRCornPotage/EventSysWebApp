@@ -13,7 +13,7 @@ USE eventsys;
 CREATE TABLE users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     role VARCHAR(20) NOT NULL
 );
@@ -52,9 +52,9 @@ CREATE TABLE notifications (
 
 -- 初期ユーザーの挿入
 -- パスワードは 'adminpassword', 'user1password', 'user2password' をBCryptPasswordEncoderでエンコードしたものです
-INSERT INTO users (username, password, email, role) VALUES ('admin', '$2a$10$2iDTs4wNWGkkY.QzqbU1ru88Lbt.50O2jivlsG/RvuGUylZdYuv9a', 'admin@example.com', 'ADMIN');
-INSERT INTO users (username, password, email, role) VALUES ('user1', '$2a$10$Yb2/a4WDgOwRvsqYQDh0m.8Ef9ur0Qqcsxmln1qgy4qFzC09RCj4u', 'user1@example.com', 'USER');
-INSERT INTO users (username, password, email, role) VALUES ('user2', '$2a$10$TnGMqL6qiwkgDsC/hBOkf..zhtcexy/fDDVKNIWguShjqwOT4VTpq', 'user2@example.com', 'USER');
+INSERT INTO users (username, password, email, role) VALUES ('admin', '{bcrypt}$2a$10$2iDTs4wNWGkkY.QzqbU1ru88Lbt.50O2jivlsG/RvuGUylZdYuv9a', 'admin@example.com', 'ADMIN');
+INSERT INTO users (username, password, email, role) VALUES ('user1', '{bcrypt}$2a$10$Yb2/a4WDgOwRvsqYQDh0m.8Ef9ur0Qqcsxmln1qgy4qFzC09RCj4u', 'user1@example.com', 'USER');
+INSERT INTO users (username, password, email, role) VALUES ('user2', '{bcrypt}$2a$10$TnGMqL6qiwkgDsC/hBOkf..zhtcexy/fDDVKNIWguShjqwOT4VTpq', 'user2@example.com', 'USER');
 
 -- 初期イベントの挿入
 INSERT INTO events (name, description, location, start_time, end_time, organizer_id) VALUES ('Spring Boot Workshop', 'A workshop on Spring Boot basics', 'Conference Room A', '2024-07-01 10:00:00', '2024-07-01 12:00:00', 1);
