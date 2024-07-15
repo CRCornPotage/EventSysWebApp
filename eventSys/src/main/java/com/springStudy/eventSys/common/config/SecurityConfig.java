@@ -1,5 +1,7 @@
 package com.springStudy.eventSys.common.config;
 
+import java.util.Map;
+
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,6 +9,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -22,10 +26,21 @@ public class SecurityConfig {
 	 * ハッシュ化処理を行うメソッド
 	 * @return PasswordEncoderを実装したインスタンス
 	 */
-    @Bean
-    PasswordEncoder passwordEncoder() {
-    	return Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8();
-    }
+   @Bean
+   PasswordEncoder passwordEncoder() {
+	   
+	   String idForEncode = "argon2@SpringSecurity_v5_8";
+	   
+	   DelegatingPasswordEncoder passwordEncoder = 
+			   new DelegatingPasswordEncoder(
+					   idForEncode, 
+					   Map.of(idForEncode, Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8(), 
+							   "bcrypt", new BCryptPasswordEncoder())
+				);
+	   
+	   return passwordEncoder;
+	   
+   }
     
     /**
      * セキュリティフィルターチェインを設定するメソッド
